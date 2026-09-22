@@ -134,16 +134,17 @@ img { max-width: 100%; display: block; }
 .body-listen__intro h2 em { color: var(--clay); font-weight: 500; }
 .body-listen__intro > p:last-child { max-width: 390px; margin: 0 0 10px; color: rgba(32, 35, 28, .68); line-height: 1.75; }
 .body-map-wrap { margin-top: 90px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 8vw; }
-.body-map { position: relative; width: min(100%, 530px); min-height: 660px; margin-inline: auto; display: grid; place-items: center; border-radius: 48% 52% 45% 55% / 52% 42% 58% 48%; background: var(--sand); }
-.body-map::before { content: ""; position: absolute; inset: 8%; border: 1px solid rgba(32, 35, 28, .15); border-radius: inherit; }
-.body-silhouette { width: 300px; height: 610px; fill: rgba(248, 244, 236, .58); stroke: var(--ink); stroke-width: 1.4; }
-.body-point { position: absolute; width: 26px; height: 26px; padding: 0; border: 7px solid var(--paper); border-radius: 50%; background: var(--clay); box-shadow: 0 0 0 1px var(--clay); transition: transform .2s ease, background .2s ease; }
+.body-map { position: relative; isolation: isolate; width: min(100%, 530px); min-height: 680px; margin-inline: auto; display: grid; place-items: center; overflow: hidden; border-radius: 48% 52% 45% 55% / 52% 42% 58% 48%; background: radial-gradient(circle at 46% 34%, rgba(255, 253, 249, .62), transparent 46%), linear-gradient(145deg, #e5d8c6, #c8ad8e); box-shadow: inset 0 0 60px rgba(73, 68, 52, .1); }
+.body-map::before { content: ""; position: absolute; inset: 8%; z-index: 0; border: 1px solid rgba(32, 35, 28, .14); border-radius: inherit; }
+.body-map::after { content: ""; position: absolute; left: 50%; bottom: 3%; z-index: 0; width: 54%; height: 9%; border-radius: 50%; background: rgba(58, 53, 41, .23); filter: blur(20px); transform: translateX(-50%); }
+.body-silhouette { position: relative; z-index: 1; width: 400px; height: 640px; object-fit: contain; filter: drop-shadow(0 24px 28px rgba(55, 48, 36, .24)); transform: translateX(8px); }
+.body-point { position: absolute; z-index: 3; width: 26px; height: 26px; padding: 0; border: 7px solid var(--paper); border-radius: 50%; background: var(--clay); box-shadow: 0 0 0 1px var(--clay), 0 5px 18px rgba(48, 55, 40, .18); transition: transform .2s ease, background .2s ease; }
 .body-point:hover, .body-point.is-active { transform: scale(1.35); background: var(--forest); }
 .body-point span { position: absolute; left: 28px; top: 50%; width: max-content; padding: 5px 9px; border-radius: 999px; background: var(--forest); color: var(--white); font-size: .55rem; font-weight: 700; letter-spacing: .12em; opacity: 0; transform: translate(7px, -50%); text-transform: uppercase; transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
 .body-point:hover span, .body-point:focus-visible span, .body-point.is-active span { opacity: 1; transform: translate(0, -50%) scale(.74); transform-origin: left; }
-.body-point--neck { top: 17%; left: 49%; }
-.body-point--back { top: 34%; left: 56%; }
-.body-point--waist { top: 52%; left: 45%; }
+.body-point--neck { top: 18%; left: 51%; }
+.body-point--back { top: 34%; left: 48%; }
+.body-point--waist { top: 43%; left: 50%; }
 .body-point--legs { top: 72%; left: 56%; }
 .zone-card { position: relative; min-height: 430px; padding: 65px 60px; display: flex; flex-direction: column; justify-content: center; border: 1px solid var(--border); border-radius: 0 80px 0 80px; background: var(--cream); }
 .zone-card__number { position: absolute; right: 30px; top: 24px; color: var(--clay); font-family: var(--display); font-size: 4rem; font-style: italic; line-height: 1; opacity: .36; }
@@ -339,7 +340,7 @@ img { max-width: 100%; display: block; }
   .body-listen__intro h2 { font-size: 18vw; }
   .body-listen__intro > p:last-child { max-width: 520px; }
   .body-map-wrap { margin-top: 60px; grid-template-columns: 1fr; gap: 45px; }
-  .body-map { min-height: 620px; }
+  .body-map { min-height: 640px; }
   .zone-card { min-height: 380px; padding: 48px 38px; }
 
   .treatments { padding: 110px 0 95px; }
@@ -398,7 +399,7 @@ img { max-width: 100%; display: block; }
   .hero-note p { margin: 0; font-size: .85rem; }
 
   .body-map { min-height: 520px; }
-  .body-silhouette { width: 240px; height: 500px; }
+  .body-silhouette { width: 318px; height: 510px; transform: translateX(5px); }
   .body-point--neck { top: 17%; }
   .zone-card { padding: 42px 24px; border-radius: 0 48px 0 48px; }
   .zone-card__number { font-size: 3.2rem; }
